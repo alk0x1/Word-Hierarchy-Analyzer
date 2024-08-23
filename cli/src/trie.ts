@@ -1,3 +1,5 @@
+import { TreeNode } from "./@types/tree";
+
 class TrieNode {
   children: Map<string, TrieNode>;
 
@@ -21,6 +23,17 @@ export class Trie {
         node.children.set(normalized, new TrieNode());
       }
       node = node.children.get(normalized)!;
+    }
+  }
+
+  populateFromJson(node: TreeNode, path: string[] = []) {
+    const currentPath = [...path, node.name];
+    this.insert(currentPath);
+
+    if (node.children) {
+      for (const child of node.children) {
+        this.populateFromJson(child, currentPath);
+      }
     }
   }
 }
