@@ -1,0 +1,36 @@
+{
+  "name": "Animais",
+  "children": [
+    {
+      "name": "Mamíferos",
+      "children": [
+        {
+          "name": "Carnívoros",
+          "children": [
+            { "name": "Felinos", "children": [{ "name": "Leões" }, { "name": "Tigres" }, { "name": "Jaguars" }, { "name": "Leopardos" }] }
+          ]
+        },
+        {
+          "name": "Herbívoros",
+          "children": [
+            { "name": "Equídeos", "children": [{ "name": "Cavalos" }, { "name": "Zebras" }, { "name": "Asnos" }] },
+            { "name": "Bovídeos", "children": [{ "name": "Bois" }, { "name": "Búfalos" }, { "name": "Antílopes" }, { "name": "Cabras" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aves",
+      "children": [
+        {
+          "name": "Rapinas",
+          "children": [{ "name": "Águias" }, { "name": "Falcões" }, { "name": "Corujas" }, { "name": "Milhafres" }]
+        },
+        {
+          "name": "Pássaros",
+          "children": [{ "name": "Canários" }]
+        }
+      ]
+    }
+  ]
+}
