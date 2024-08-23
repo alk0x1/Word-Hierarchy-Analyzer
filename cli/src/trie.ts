@@ -18,13 +18,18 @@ export class Trie {
   insert(path: string[]) {
     let node = this.root;
     for (const part of path) {
-      const normalized = part.toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
+      const normalized = this.normalize(part);
       if (!node.children.has(normalized)) {
         node.children.set(normalized, new TrieNode());
       }
       node = node.children.get(normalized)!;
     }
   }
+
+  normalize(word: string) {
+    return word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
 
   populateFromJson(node: TreeNode, path: string[] = []) {
     const currentPath = [...path, node.name];
