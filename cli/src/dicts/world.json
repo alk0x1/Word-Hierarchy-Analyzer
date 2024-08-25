@@ -1,0 +1,93 @@
+{
+  "name": "Mundo",
+  "children": [
+    {
+      "name": "Seres Vivos",
+      "children": [
+        {
+          "name": "Animais",
+          "children": [
+            {
+              "name": "Vertebrados",
+              "children": [
+                {
+                  "name": "Mamíferos",
+                  "children": [
+                    {
+                      "name": "Terrestres",
+                      "children": [
+                        {"name": "Leão"},
+                        {"name": "Elefante"},
+                        {"name": "Girafa"}
+                      ]
+                    },
+                    {
+                      "name": "Aquáticos",
+                      "children": [
+                        {"name": "Baleia"},
+                        {"name": "Golfinho"}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Aves",
+                  "children": [
+                    {"name": "Águia"},
+                    {"name": "Pinguim"},
+                    {"name": "Papagaio"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Invertebrados",
+              "children": [
+                {"name": "Insetos"},
+                {"name": "Moluscos"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Plantas",
+          "children": [
+            {
+              "name": "Árvores",
+              "children": [
+                {"name": "Carvalho"},
+                {"name": "Pinheiro"}
+              ]
+            },
+            {
+              "name": "Flores",
+              "children": [
+                {"name": "Rosa"},
+                {"name": "Tulipa"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Objetos",
+      "children": [
+        {
+          "name": "Eletrônicos",
+          "children": [
+            {"name": "Computador"},
+            {"name": "Smartphone"}
+          ]
+        },
+        {
+          "name": "Móveis",
+          "children": [
+            {"name": "Mesa"},
+            {"name": "Cadeira"}
+          ]
+        }
+      ]
+    }
+  ]
+}
