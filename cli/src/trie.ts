@@ -2,6 +2,7 @@ import { TreeNode } from "./@types/tree";
 
 class TrieNode {
   children: Map<string, TrieNode>;
+  originalWord?: string;
 
   constructor() {
     this.children = new Map<string, TrieNode>();
@@ -10,9 +11,11 @@ class TrieNode {
 
 export class Trie {
   root: TrieNode;
+  originalWords: Map<string, string>;
 
   constructor() {
     this.root = new TrieNode();
+    this.originalWords = new Map<string, string>();
   }
 
   insert(path: string[]) {
@@ -24,6 +27,10 @@ export class Trie {
       }
       node = node.children.get(normalized)!;
     }
+    const original = path[path.length - 1];
+    const normalized = this.normalize(original);
+    node.originalWord = original;
+    this.originalWords.set(normalized, original);
   }
 
   normalize(word: string) {
@@ -53,9 +60,10 @@ export class Trie {
 
     dfs(this.root, 0, []);
 
-    const output: string[] = [];
+  const output: string[] = [];
     for (const [category, count] of categoryCount.entries()) {
-      output.push(`${category} = ${count}`);
+      const original = this.originalWords.get(this.normalize(category)) || category;
+      output.push(`${original} = ${count}`);
     }
 
     return output.join("; ");
