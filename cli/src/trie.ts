@@ -1,5 +1,4 @@
 import { TreeNode } from "./@types/tree";
-
 class TrieNode {
   children: Map<string, TrieNode>;
   originalWord?: string;
@@ -12,16 +11,21 @@ class TrieNode {
 export class Trie {
   root: TrieNode;
   originalWords: Map<string, string>;
+  cache: Map<string, TrieNode>;
 
   constructor() {
     this.root = new TrieNode();
     this.originalWords = new Map<string, string>();
+    this.cache = new Map<string, TrieNode>();
   }
 
   insert(path: string[]) {
     let node = this.root;
+    let pathKey = '';
+
     for (const part of path) {
       const normalized = this.normalize(part);
+      pathKey += normalized + '/';
       if (!node.children.has(normalized)) {
         node.children.set(normalized, new TrieNode());
       }
@@ -31,6 +35,8 @@ export class Trie {
     const normalized = this.normalize(original);
     node.originalWord = original;
     this.originalWords.set(normalized, original);
+
+    this.cache.set(pathKey, node);
   }
 
   normalize(word: string) {
@@ -39,7 +45,6 @@ export class Trie {
 
   analyzeAtDepth(depth: number, words: string[]): string {
     const categoryCount: Map<string, number> = new Map();
-
     const normalizedWords = words.map(word => this.normalize(word));
 
     const dfs = (node: TrieNode, currentDepth: number, currentPath: string[]) => {
@@ -60,7 +65,7 @@ export class Trie {
 
     dfs(this.root, 0, []);
 
-  const output: string[] = [];
+    const output: string[] = [];
     for (const [category, count] of categoryCount.entries()) {
       const original = this.originalWords.get(this.normalize(category)) || category;
       output.push(`${original} = ${count}`);
@@ -78,5 +83,16 @@ export class Trie {
         this.populateFromJson(child, currentPath);
       }
     }
+  }
+
+  findCategory(word: string): string | undefined {
+    const normalizedWord = this.normalize(word);
+    const cachedNode = this.cache.get(normalizedWord);
+
+    if (cachedNode && cachedNode.originalWord) {
+      return this.originalWords.get(this.normalize(cachedNode.originalWord));
+    }
+
+    return undefined;
   }
 }
