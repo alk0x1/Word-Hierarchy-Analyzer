@@ -8,9 +8,8 @@ This CLI tool provides functionalities to analyze phrases with specified depth a
 
 ## Setup Instructions
 
-1. **Clone the Repository**:
+1. **Enter in the directory**:
     ```bash
-    git clone https://github.com/alk0x1/Word-Hierarchy-Analyzer.git
     cd Word-Hierarchy-Analyzer/cli
     ```
 
