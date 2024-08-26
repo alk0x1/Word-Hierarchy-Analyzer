@@ -12,8 +12,8 @@ describe('Trie', () => {
   });
 
   test('should analyze correctly at different depths', () => {
-    expect(trie.analyzeAtDepth(1, ['seres vivos', 'objetos'])).toBe('Mundo = 2');
-    expect(trie.analyzeAtDepth(2, ['animais', 'plantas', 'eletronicos'])).toBe('Seres Vivos = 2; Objetos = 1');
+    expect(trie.analyzeAtDepth(1, ['seresvivos', 'objetos'])).toBe('Mundo = 2');
+    expect(trie.analyzeAtDepth(2, ['animais', 'plantas', 'eletronicos'])).toBe('SeresVivos = 2; Objetos = 1');
     expect(trie.analyzeAtDepth(3, ['vertebrados', 'invertebrados', 'arvores', 'flores'])).toBe('Animais = 2; Plantas = 2');
     expect(trie.analyzeAtDepth(4, ['mamiferos', 'aves', 'rosa', 'tulipa'])).toBe('Vertebrados = 2; Flores = 2');
     expect(trie.analyzeAtDepth(5, ['terrestres', 'aquaticos', 'aguia', 'pinguim'])).toBe('Mamíferos = 2; Aves = 2');

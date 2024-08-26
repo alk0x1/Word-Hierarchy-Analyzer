@@ -2,7 +2,7 @@
   "name": "Mundo",
   "children": [
     {
-      "name": "Seres Vivos",
+      "name": "SeresVivos",
       "children": [
         {
           "name": "Animais",
