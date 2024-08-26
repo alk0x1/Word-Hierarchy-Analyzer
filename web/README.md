@@ -5,7 +5,11 @@ Web Page to create new trees and download as a json
 - **Node.js** (version 14 or higher recommended)
 - **npm** (yarn can't be used here)
 
+
 ### Install Dependencies:
+```bash
+cd Word-Hierarchy-Analyzer/web
+```
 ```bash
 npm install
 ```
