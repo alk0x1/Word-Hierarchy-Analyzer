@@ -23,7 +23,7 @@ All words are normalized by converting them to lowercase and stripping diacritic
 The analysis at a specific depth is implemented using DFS, which allows for traversing the Trie efficiently and accumulating counts for matched categories.<br />
 **Trade-off**: DFS was chosen over BFS (Breadth-First Search) because it uses less memory, as it doesn't need to store all nodes at a certain level before proceeding.
 4. **Pre-Loading Data**:
-All words are stores in the data structure at once.<br />
+All words are stored in the data structure at once.<br />
 **Trade-off**: This consumes more memory than the lazy loading approach where only the necessary parts of the hierarchy are loaded during analysis. But as our priority is query speed Pre-Load the data is a better choice for it.
 5. **Caching Mechanism**:
 A hashmap implemented to store precomputed paths and their corresponding Trie nodes. This allows for faster lookups by avoiding the need to traverse the entire Trie from the root for frequently accessed paths.<br />
